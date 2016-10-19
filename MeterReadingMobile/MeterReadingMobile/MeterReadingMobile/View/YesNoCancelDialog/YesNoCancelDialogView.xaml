@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MeterReadingMobile;assembly=MeterReadingMobile"
+             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+             x:Class="MeterReadingMobile.View.YesNoCancelDialogView"
+             Title="{Binding Name}">
+    <StackLayout VerticalOptions="StartAndExpand" Padding="20">
+
+        <Label HorizontalTextAlignment="Center" TextColor="Blue" FontSize="20"  Text="{Binding Message}" />
+
+
+        <StackLayout VerticalOptions="StartAndExpand" Padding="20"  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+
+            <Button x:Name="btnYes" Text="Yes" >
+                <Button.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="Clicked">
+                        <behaviors:InvokeCommandAction
+              Command="{Binding Source={x:Reference btnYes}, Path=BindingContext.YesCommand}"
+              CommandParameter="{Binding .}"/>
+                    </behaviors:EventHandlerBehavior>
+                </Button.Behaviors>
+            </Button>
+
+            <Button x:Name="btnNo" Text="No" >
+                <Button.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="Clicked">
+                        <behaviors:InvokeCommandAction
+              Command="{Binding Source={x:Reference btnNo}, Path=BindingContext.NoCommand}"
+              CommandParameter="{Binding .}"/>
+                    </behaviors:EventHandlerBehavior>
+                </Button.Behaviors>
+            </Button>
+
+            <Button x:Name="btnCancel" Text="Cancel" >
+                <Button.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="Clicked">
+                        <behaviors:InvokeCommandAction
+              Command="{Binding Source={x:Reference btnCancel}, Path=BindingContext.CancelCommand}"
+              CommandParameter="{Binding .}"/>
+                    </behaviors:EventHandlerBehavior>
+                </Button.Behaviors>
+            </Button>
+
+
+        </StackLayout>
+
+    </StackLayout>
+</local:ContentPageBase>

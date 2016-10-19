@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MeterReadingMobile;assembly=MeterReadingMobile"
+             x:Class="MeterReadingMobile.View.Intrata.LoginView">
+  <StackLayout VerticalOptions="Center" Padding="30" >
+
+    <Entry  Text="{Binding Path=User}" Placeholder="Username" />
+    <Entry  Text="{Binding Path=Password}" Placeholder="Password" IsPassword="true" />
+    <local:BindablePicker ItemsSource="{Binding Path=Installations,Mode=TwoWay}" SelectedItem="{Binding Path=SelectedInstallation}" DisplayProperty="CodeAndName" Title="Select install"/>
+    <local:BindablePicker ItemsSource="{Binding Path=Years,Mode=TwoWay}" SelectedItem="{Binding Path=SelectedYear}" DisplayProperty="Code" Title="Select year"/>
+    <Button  Text="Login" IsEnabled="{Binding Path=CanLogin}" Command="{Binding LogInCommand}"/>
+  </StackLayout>
+
+
+</ContentPage>

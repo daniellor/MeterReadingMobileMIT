@@ -1,0 +1,10 @@
+{
+  "schema": "https://schemas.xenforms.com/xenproject/v1/",
+  "assemblies": [
+    {
+      "include": true,
+      "relativePath": "\\MeterReadingMobile\\MeterReadingMobile\\MeterReadingMobile.UWP\\bin\\ARM\\Debug\\MeterReadingMobile.dll"
+    }
+  ],
+  "views": null
+}

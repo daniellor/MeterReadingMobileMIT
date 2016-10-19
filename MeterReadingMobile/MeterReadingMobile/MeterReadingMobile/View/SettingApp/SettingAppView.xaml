@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeterReadingMobile.View.SettingAppView"
+             Title="Settings App">
+  <StackLayout VerticalOptions="StartAndExpand" Padding="20">
+
+    <Label Text="Database name" />
+    <Entry x:Name="DatabaseNameEntry" Text="{Binding DatabaseName}"/>
+
+    <Label Text="Intrata api server" />
+    <Entry x:Name="IntrataApiServerEntry" Text="{Binding IntrataApiServer}"/>
+
+    <Button Text="Save" Clicked="saveClicked"/>
+    <Button Text="Cancel" Clicked="cancelClicked"/>
+
+
+  </StackLayout>
+</ContentPage>

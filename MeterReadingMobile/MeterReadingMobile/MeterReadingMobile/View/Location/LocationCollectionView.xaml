@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="locationcollection"
+             xmlns:local="clr-namespace:MeterReadingMobile;assembly=MeterReadingMobile"
+             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+             x:Class="MeterReadingMobile.View.LocationCollectionView">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Command="{Binding Source={x:Reference locationcollection}, Path=BindingContext.AddCommand}}"
+              Text="+"
+             Priority="1"
+             Order="1"
+                         />
+  </ContentPage.ToolbarItems>
+  <ListView x:Name="allItems"
+          ItemsSource="{Binding Path=Items,Mode=TwoWay}"
+          SelectedItem="{Binding Path=SelectedItem,Mode=TwoWay}" >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ViewCell.View>
+            <StackLayout Padding="20,0,20,0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+              <Button Text="Edit" HeightRequest = "30" HorizontalOptions="Center"  >
+                <Button.Behaviors>
+                  <behaviors:EventHandlerBehavior EventName="Clicked">
+                    <behaviors:InvokeCommandAction
+  Command="{Binding Source={x:Reference allItems}, Path=BindingContext.EditCommand}"
+  CommandParameter="{Binding .}"/>
+                  </behaviors:EventHandlerBehavior>
+                </Button.Behaviors>
+              </Button>
+
+              <Button  Text="Delete" HorizontalOptions="Center" >
+                <Button.Behaviors>
+                  <behaviors:EventHandlerBehavior EventName="Clicked">
+                    <behaviors:InvokeCommandAction
+  Command="{Binding Source={x:Reference allItems}, Path=BindingContext.DeleteCommand}"
+  CommandParameter="{Binding .}"/>
+                  </behaviors:EventHandlerBehavior>
+                </Button.Behaviors>
+              </Button>
+
+
+              <Label Text="{Binding Code}"
+                    VerticalTextAlignment="Center"
+                    HorizontalOptions="StartAndExpand" />
+              <Label Text="{Binding Description}"
+                     VerticalTextAlignment="Center"
+                     HorizontalOptions="StartAndExpand" />
+
+            </StackLayout>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+
+    </ListView.ItemTemplate>
+
+  </ListView>
+</local:ContentPageBase>

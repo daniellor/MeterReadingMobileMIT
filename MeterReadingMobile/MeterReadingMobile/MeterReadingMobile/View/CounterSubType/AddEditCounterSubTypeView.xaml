@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="AddEditCounterSubTypeView"
+             xmlns:local="clr-namespace:MeterReadingMobile;assembly=MeterReadingMobile"
+             x:Class="MeterReadingMobile.View.AddEditCounterSubTypeView"
+             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+             Title="{Binding Code}">
+  <StackLayout VerticalOptions="StartAndExpand" Padding="20">
+
+    <Label Text="Code" />
+    <Entry  Text="{Binding Code}"/>
+    <Label Text="Name" />
+    <Entry  Text="{Binding Description}"/>
+
+    <Button x:Name="btnSave" Text="Save" >
+      <Button.Behaviors>
+        <behaviors:EventHandlerBehavior EventName="Clicked">
+          <behaviors:InvokeCommandAction
+  Command="{Binding Source={x:Reference btnSave}, Path=BindingContext.SaveCommand}"
+  CommandParameter="{Binding .}"/>
+        </behaviors:EventHandlerBehavior>
+      </Button.Behaviors>
+    </Button>
+
+
+
+  </StackLayout>
+</local:ContentPageBase>
